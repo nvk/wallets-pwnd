@@ -51,7 +51,6 @@ TODO
 Project&nbsp;Status|Vendor|Model|Hardware Version|Docs|(Vulnerability&nbsp;Report, Vendor&nbsp;Announcement/Fix)
 :---:|:---:|:---:|:---:|---|---
 ☠️🕵️‍💩🔵|Example|Model|Version|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
-Emoji|Example|Model|Version|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
 ||CasaHold|CasaNode|v1||
 ||BullBitcoin|Cyphernode|v1||
 ||Nodl|Nodl|v1||

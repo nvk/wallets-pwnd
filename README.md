@@ -7,63 +7,83 @@
 
 ## Hardware
 
-Fixed?|Severity|Vendor|Model|Wallet Version Affected|Product Docs|Vulnerability Report|Vendor Announcement|Fix
-:---:|:---:|---|---|---|---|---|---|---
-Y/N|1-10|Vendor Name|Model|Version|[↗︎]()/[Archive]()|[↗︎]()/[Archive]()|[↗︎]()/[Archive]()|[↗︎]()/[Archive]()
+Project&nbsp;Status|Vendor|Model|Hardware Version|Docs|(Vulnerability&nbsp;Report, Vendor&nbsp;Announcement/Fix)
+:---:|:---:|:---:|:---:|---|---
+☠️🕵️‍💩🔵|Example|Model|Version|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
+-|Coinkite|Coldcard|Mk1||
+-|Coinkite|Coldcard|Mk2||
+-|Coinkite|Coldcard|Mk3||
+-|Coinkite|Opendime|V1||
+-|Coinkite|Opendime|V2||
+-|Coinkite|Opendime|V3||
+-|Coinkite|Opendime|V4||
+-|Ledger|Ledger|Blue||
+-|Ledger|Ledger|Nano||
+-|Ledger|Ledger|X||
+-|SatoshiLab|Trezor|One||
+-|SatoshiLab|Trezor|Model T||
+-|ShapeShift|KeepKey|01||
+-|ShiftCrypto|BitBox|01||
+-|ShiftCrypto|BitBox|02||
+
 
 
 ## Desktop
+Project&nbsp;Status|Vendor|Name|OS|Docs|(Vulnerability&nbsp;Report, Vendor&nbsp;Announcement/Fix)
+:---:|:---:|:---:|:---:|---|---
+☠️🕵️‍💩🔵|Example|Model|OS|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
 TODO
 
 ## Phone
+Project&nbsp;Status|Vendor|App Name|OS|Docs|(Vulnerability&nbsp;Report, Vendor&nbsp;Announcement/Fix)
+:---:|:---:|:---:|:---:|---|---
+☠️🕵️‍💩🔵|Example|App Name|OS|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
 TODO
 
 ## Web
+Project&nbsp;Status|Vendor|App URL|Docs|(Vulnerability&nbsp;Report, Vendor&nbsp;Announcement/Fix)
+:---:|:---:|:---:|:---|---
+☠️🕵️‍💩🔵|Example|wallet.domain.com|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
 TODO
 
+## Node Computers and/or Turn Key Images
+
+Project&nbsp;Status|Vendor|Model|Hardware Version|Docs|(Vulnerability&nbsp;Report, Vendor&nbsp;Announcement/Fix)
+:---:|:---:|:---:|:---:|---|---
+☠️🕵️‍💩🔵|Example|Model|Version|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
+Emoji|Example|Model|Version|[Doc]()|[1 [V](),[A](),[F]()], [2 [V](),[A/F]()], [3 [V](),[A](),[F]()]
+||CasaHold|CasaNode|v1||
+||BullBitcoin|Cyphernode|v1||
+||Nodl|Nodl|v1||
+||Nodl|Samourai|v1||
+||myNode|myNode|v1||
+
+
+
 ---
-
-### Severity Scale:
-
-WIP
-
-1. ie Leaks privacy
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
 
 Notes:
 - WIP
 
 Icon|Legend
 :---:|---
-🛑|WIP
+🕵️‍|Poor pefault privacy
+💩|Supports altcoins
+☠️|Known unfixable exploit that could cause loss of funds
+🔵|No known unfixable exploit that could cause loss of funds
 
 ---
 
-## Requirements for listing
+## Requirements for vulnerability to be listed
 
 - Working Proof of Concept
-- Severity?
 - HW|SW|HW+SW
 
+## Explainer: Wallet Types
 
+TODO
 
-## Explainer: Wallet Types (from walletsrecovery.org)
-
-+ [**Paper wallets**](https://en.bitcoin.it/wiki/Paper_wallet) are not actually wallets, but rather private keys and addresses printed out on paper. While the keys and addresses can technically be generated non-deterministically or deterministically, the usability is basically the same or poorer than a non-deterministic software wallet. Paper wallets have a number of significant drawbacks, including encouraging address reuse, exposing keys to poorly secured networked devices (printer), and not handling change addresses. Paper wallets should not be confused with [recovery seeds](https://wiki.trezor.io/Recovery_seed).
-+ **Non-deterministic wallets** randomly generate all private / public key pairs independent of each other. A [keypool buffer](https://en.bitcoin.it/wiki/Key_pool) was added to the Bitcoin-Qt / Bitcoin Core wallet in [October](https://bitcointalk.org/index.php?topic=1414.0) [2010](https://bitcointalk.org/index.php?topic=1528.0), which allowed the wallet to create a collection of unused addresses, rather than generating new addresses one by one upon use. While this feature allowed for less frequent backups than before, the non-determinism still carried the risk of key loss if the pool was exhausted and a new key was generated beyond what was saved in backup.
-+ **Deterministic wallets** are essentially any wallet where "[you can backup once... because all future addresses are determined in advance](https://bitcointalk.org/index.php?topic=19137.msg239768#msg239768)," which was a massive improvement in recoverability. There are [two different forms](https://bitcoin.stackexchange.com/questions/18102/does-a-wallet-containing-multiple-addresses-have-a-single-private-key):
-   + **Sequential deterministic wallets** take a single seed phrase / passphrase and repeatedly increment it in order to generate new keypairs. This meant that the system would only need to store addresses, and then re-generate the private keys when needed.
-   + **Hierarchical deterministic wallets** take a single seed phrase and randomly generate a master private / public key pair, which is then used to derive child key pairs that generate addresses. This system allows for the generation of addresses to occur without the master private key, with only the public key.
-+ **Multi-signature wallets** require multiple signatures or parties to sign a transaction in order to spend bitcoin. An M-of-N [BIP11](https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki) address must first be generated in order to receive bitcoin for spending in multi-signature transactions. While the 2-of-2 and 2-of-3 schemes are the most common, the [maximum number of public keys](https://bitcoin.stackexchange.com/questions/81223/why-is-20-the-maximum-public-keys-in-a-multisig-transaction) is higher, and this could increase much more in the future [with Schnorr signatures](https://twitter.com/J9Roem/status/991098233828139008) and [Taproot](https://bitcoinops.org/en/newsletters/2019/05/14/). 'Partially Signed Bitcoin Transactions' (PSBT) according to [BIP174](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki) (proposed), where unsigned or partially signed transactions are passed around to multiple signers or signing devices, may also be an option.
-
+Learn more about wallet derivation types and recovery here [walletsrecovery.org](http://walletsrecovery.org)
 
 ---
 

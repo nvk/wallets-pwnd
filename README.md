@@ -66,7 +66,7 @@ Notes:
 
 Icon|Legend
 :---:|---
-🕵️‍|Poor pefault privacy
+🕵️‍|Poor default privacy
 💩|Supports altcoins
 ☠️|Known unfixable exploit that could cause loss of funds
 🔵|No known unfixable exploit that could cause loss of funds
